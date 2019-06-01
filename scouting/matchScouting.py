@@ -1,10 +1,12 @@
 import flask
 from flask import current_app, session, render_template, redirect
 import time
+import requests as rq
 
 
 def matchScouting(request):
     database = current_app._get_current_object().database
+    scraper = current_app._get_current_object().scraper
     if request.method == "GET":
         return flask.render_template('/matchScouting/inputMatchNumber.html')
     elif request.method == "POST":
@@ -15,7 +17,7 @@ def matchScouting(request):
         print(data)
         if ('teamNumber' in fields):
             session['teamnumber'] = data['teamNumber']
-            if True:  # implement later
+            if False:  # implement later
                 return flask.render_template('/matchScouting/inputMatchNumber.html')
             return flask.render_template('/AlanMatchScouting.html', matchNumber=request.form['matchNumber'], teamNumber=request.form['teamNumber'])
 
@@ -27,10 +29,10 @@ def matchScouting(request):
             # already people scouting teams, need to implement
             datateams = ["254", "1323"]
             teamlist = ['R1', 'R2', 'R3', 'B1', 'B2', 'B3']
-            teams = [e for e in database.getMatches() if e[0] ==
-                     data["matchNumber"]][0][1:7]
-            teams = {teamlist[c]: team if not team in datateams else team+" - Taken" for c, team in enumerate(
-                teams)}
+
+            teams = scraper.getMatchTeams(data["matchNumber"])
+            {teams.update(
+                {k: "Taken: "+teams[k]}): 0 for k in teams if teams[k] in datateams}
             print(teams)
             session['matchid'] = data['matchNumber']
             return flask.render_template('/matchScouting/inputTeamNumber.html', matchNumber=request.form['matchNumber'],

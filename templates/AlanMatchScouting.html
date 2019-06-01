@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<!-- saved from url=(0104)https://www.pythonanywhere.com/user/ironclaw/files/home/ironclaw/mysite/templates/AlanMatchScouting.html -->
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style class="darkreader darkreader--fallback" media="screen"></style>
+    <style class="darkreader darkreader--text" media="screen"></style>
+    <style class="darkreader darkreader--invert" media="screen"></style>
+    <style class="darkreader darkreader--inline" media="screen">
+        [data-darkreader-inline-bgcolor] {
+            background-color: var(--darkreader-inline-bgcolor) !important;
+        }
+
+        [data-darkreader-inline-bgimage] {
+            background-image: var(--darkreader-inline-bgimage) !important;
+        }
+
+        [data-darkreader-inline-border] {
+            border-color: var(--darkreader-inline-border) !important;
+        }
+
+        [data-darkreader-inline-border-bottom] {
+            border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+        }
+
+        [data-darkreader-inline-border-left] {
+            border-left-color: var(--darkreader-inline-border-left) !important;
+        }
+
+        [data-darkreader-inline-border-right] {
+            border-right-color: var(--darkreader-inline-border-right) !important;
+        }
+
+        [data-darkreader-inline-border-top] {
+            border-top-color: var(--darkreader-inline-border-top) !important;
+        }
+
+        [data-darkreader-inline-boxshadow] {
+            box-shadow: var(--darkreader-inline-boxshadow) !important;
+        }
+
+        [data-darkreader-inline-color] {
+            color: var(--darkreader-inline-color) !important;
+        }
+
+        [data-darkreader-inline-fill] {
+            fill: var(--darkreader-inline-fill) !important;
+        }
+
+        [data-darkreader-inline-stroke] {
+            stroke: var(--darkreader-inline-stroke) !important;
+        }
+
+        [data-darkreader-inline-outline] {
+            outline-color: var(--darkreader-inline-outline) !important;
+        }
+    </style>
+    <style class="darkreader darkreader--user-agent" media="screen">
+        html {
+            background-color: #101314 !important;
+        }
+
+        html,
+        body,
+        input,
+        textarea,
+        select,
+        button {
+            background-color: #101314;
+        }
+
+        html,
+        body,
+        input,
+        textarea,
+        select,
+        button {
+            border-color: #5d5d5d;
+            color: #ffffff;
+        }
+
+        a {
+            color: #31a3ff;
+        }
+
+        table {
+            border-color: #4f4f4f;
+        }
+
+        ::placeholder {
+            color: #d4cec2;
+        }
+
+        ::selection {
+            background-color: #0063ea;
+            color: #ffffff;
+        }
+
+        ::-moz-selection {
+            background-color: #0063ea;
+            color: #ffffff;
+        }
+
+        input:-webkit-autofill,
+        textarea:-webkit-autofill,
+        select:-webkit-autofill {
+            background-color: #596100 !important;
+            color: #ffffff !important;
+        }
+    </style>
+    <title>Match Scouting</title>
+    <link href="/css/scouting.css" type="text/css" rel="stylesheet">
+    <style class="darkreader darkreader--override" media="screen">
+        .jfk-bubble {
+            background-color: #000000 !important;
+        }
+
+        .vimvixen-hint {
+            background-color: #885800 !important;
+            border-color: #f8c80a !important;
+            color: #ffffe5 !important;
+        }
+    </style>
+</head>
+
+<body style="">
+
+    <header>
+        <h1>Match Scouting</h1>
+        <h2>You are scouting Team {{teamNumber}} on Match {{matchNumber}}.</h2>
+    </header>
+
+    <form method="POST" onsubmit="return confirm(&#39;Are you sure you want to submit the data?&#39;);">
+
+        <section class="inputSection">
+            <h3>Scouter's Name</h3>
+            <div class="textInput">
+                <textarea type="text" name="name" placeholder="Type here..." rows="1" maxlength="31">{{name}}</textarea>
+            </div>
+        </section>
+
+        <section class="headerSection">
+            <h3>Sandstorm</h3>
+        </section>
+
+        <section class="inputSection">
+            <h3>Control</h3>
+            <div class="optionInput">
+                <input id="ssidk" type="radio" name="sandstorm" value="idk" checked="">
+                <label for="ssidk">Don't Know</label>
+                <input id="ssnone" type="radio" name="sandstorm" value="none">
+                <label for="ssnone">None</label>
+                <input id="sscamera" type="radio" name="sandstorm" value="camera">
+                <label for="sscamera">Camera</label>
+                <input id="ssauto" type="radio" name="sandstorm" value="auto">
+                <label for="ssauto">Autonomous</label>
+            </div>
+        </section>
+
+        <section class="inputSection">
+            <h3>Crossed Line?</h3>
+            <div class="toggleInput">
+                <input id="habno" type="radio" name="sshab" value="off" checked="">
+                <label for="habno">No</label>
+                <input id="habyes" type="radio" name="sshab" value="on">
+                <label for="habyes">Yes</label>
+            </div>
+        </section>
+        <section class="inputSection">
+            <h3>Cargo</h3>
+            <div class="numberInput">
+                <button type="button" class="sub">-</button>
+                <div class="numberFieldWrapper"><input type="number" name="sscargo" min="0" max="7" value="0"
+                        readonly=""></div>
+                <button type="button" class="add">+</button>
+            </div>
+        </section>
+        <section class="inputSection">
+            <h3>Rocket Hatch</h3>
+            <div class="numberInput">
+                <button type="button" class="sub">-</button>
+                <div class="numberFieldWrapper"><input type="number" name="sshatchr" min="0" max="7" value="0"
+                        readonly=""></div>
+                <button type="button" class="add">+</button>
+            </div>
+        </section>
+        <section class="inputSection">
+            <h3>Cargo Ship Hatch</h3>
+            <div class="numberInput">
+                <button type="button" class="sub">-</button>
+                <div class="numberFieldWrapper"><input type="number" name="sshatchc" min="0" max="7" value="0"
+                        readonly=""></div>
+                <button type="button" class="add">+</button>
+            </div>
+        </section>
+
+
+        <section class="headerSection">
+            <h3>Hatch</h3>
+        </section>
+
+        <section class="inputSection">
+            <h3>Cargo Ship</h3>
+            <div class="numberInput">
+                <button type="button" class="sub">-</button>
+                <div class="numberFieldWrapper"><input type="number" name="hc" min="0" max="8" value="0" readonly="">
+                </div>
+                <button type="button" class="add">+</button>
+            </div>
+        </section>
+
+        <section class="inputSection">
+            <h3>Rocket Lv. 1</h3>
+            <div class="numberInput">
+                <button type="button" class="sub">-</button>
+                <div class="numberFieldWrapper"><input type="number" name="h1" min="0" max="4" value="0" readonly="">
+                </div>
+                <button type="button" class="add">+</button>
+            </div>
+        </section>
+
+        <section class="inputSection">
+            <h3>Rocket Lv. 2</h3>
+            <div class="numberInput">
+                <button type="button" class="sub">-</button>
+                <div class="numberFieldWrapper"><input type="number" name="h2" min="0" max="4" value="0" readonly="">
+                </div>
+                <button type="button" class="add">+</button>
+            </div>
+        </section>
+
+        <section class="inputSection">
+            <h3>Rocket Lv. 3</h3>
+            <div class="numberInput">
+                <button type="button" class="sub">-</button>
+                <div class="numberFieldWrapper"><input type="number" name="h3" min="0" max="4" value="0" readonly="">
+                </div>
+                <button type="button" class="add">+</button>
+            </div>
+        </section>
+        <section class="inputSection">
+            <h3>Failed Outtakes</h3>
+            <div class="numberInput">
+                <button type="button" class="sub">-</button>
+                <div class="numberFieldWrapper"><input type="number" name="fh" min="0" max="20" value="0" readonly="">
+                </div>
+                <button type="button" class="add">+</button>
+            </div>
+        </section>
+        <section class="headerSection">
+            <h3>Cargo</h3>
+        </section>
+
+        <section class="inputSection">
+            <h3>Cargo Ship</h3>
+            <div class="numberInput">
+                <button type="button" class="sub">-</button>
+                <div class="numberFieldWrapper"><input type="number" name="cc" min="0" max="8" value="0" readonly="">
+                </div>
+                <button type="button" class="add">+</button>
+            </div>
+        </section>
+
+        <section class="inputSection">
+            <h3>Rocket Lv. 1</h3>
+            <div class="numberInput">
+                <button type="button" class="sub">-</button>
+                <div class="numberFieldWrapper"><input type="number" name="c1" min="0" max="4" value="0" readonly="">
+                </div>
+                <button type="button" class="add">+</button>
+            </div>
+        </section>
+
+        <section class="inputSection">
+            <h3>Rocket Lv. 2</h3>
+            <div class="numberInput">
+                <button type="button" class="sub">-</button>
+                <div class="numberFieldWrapper"><input type="number" name="c2" min="0" max="4" value="0" readonly="">
+                </div>
+                <button type="button" class="add">+</button>
+            </div>
+        </section>
+
+        <section class="inputSection">
+            <h3>Rocket Lv. 3</h3>
+            <div class="numberInput">
+                <button type="button" class="sub">-</button>
+                <div class="numberFieldWrapper"><input type="number" name="c3" min="0" max="4" value="0" readonly="">
+                </div>
+                <button type="button" class="add">+</button>
+            </div>
+        </section>
+
+        <section class="inputSection">
+            <h3>Failed Outtakes</h3>
+            <div class="numberInput">
+                <button type="button" class="sub">-</button>
+                <div class="numberFieldWrapper"><input type="number" name="fc" min="0" max="20" value="0" readonly="">
+                </div>
+                <button type="button" class="add">+</button>
+            </div>
+        </section>
+
+        <section class="headerSection">
+            <h3>Defense</h3>
+        </section>
+
+        <section class="inputSection">
+            <h3>Defense</h3>
+            <div class="optionInput">
+                <input id="dnone" type="radio" name="defense" value="0" checked="">
+                <label for="dnone">None</label>
+                <input id="d1" type="radio" name="defense" value="1">
+                <label for="d1">Not Effective</label>
+                <input id="d2" type="radio" name="defense" value="2">
+                <label for="d2">Somewhat Effective</label>
+                <input id="d3" type="radio" name="defense" value="3">
+                <label for="d3">Very Effective</label>
+            </div>
+        </section>
+
+        <section class="inputSection">
+            <h3># of Fouls</h3>
+            <div class="numberInput">
+                <button type="button" class="sub">-</button>
+                <div class="numberFieldWrapper"><input type="number" name="fouls" min="0" max="20" value="0"
+                        readonly=""></div>
+                <button type="button" class="add">+</button>
+            </div>
+        </section>
+
+        <section class="headerSection">
+            <h3>Climb</h3>
+        </section>
+
+        <section class="inputSection">
+            <h3>HAB Level</h3>
+            <div class="optionInput">
+                <input id="climbnone" type="radio" name="climb" value="0" checked="">
+                <label for="climbnone">None</label>
+                <input id="climb1" type="radio" name="climb" value="1">
+                <label for="climb1">Level 1</label>
+                <input id="climb2" type="radio" name="climb" value="2">
+                <label for="climb2">Level 2</label>
+                <input id="climb3" type="radio" name="climb" value="3">
+                <label for="climb3">Level 3</label>
+            </div>
+        </section>
+
+        <section class="inputSection">
+            <h3>Buddy Climb</h3>
+            <div class="optionInput">
+                <input id="bcnone" type="radio" name="buddyClimbNum" value="0" checked="">
+                <label for="bcnone">None</label>
+                <input id="bc1" type="radio" name="buddyClimbNum" value="1">
+                <label for="bc1">1 Other Bot</label>
+                <input id="bc2" type="radio" name="buddyClimbNum" value="2">
+                <label for="bc2">2 Other Bots</label>
+            </div>
+        </section>
+
+        <section class="inputSection">
+            <h3>Climb Time (s)</h3>
+            <div class="numberInput">
+                <button type="button" class="sub">-</button>
+                <div class="numberFieldWrapper"><input type="number" name="climbTime" value="0" min="0" max="30"
+                        readonly=""></div>
+                <button type="button" class="add">+</button>
+            </div>
+        </section>
+
+        <section class="headerSection">
+            <h3>Miscellaneous</h3>
+        </section>
+
+        <section class="inputSection">
+            <h3>Additional Comments</h3>
+            <div class="textInput">
+                <textarea type="text" name="comments" placeholder="Enter additional comments..." rows="6"
+                    maxlength="255"></textarea>
+            </div>
+        </section>
+
+        <input type="submit" value="Submit!">
+
+    </form>
+
+
+    <script type="text/javascript" src="./AlanMatchScouting_files/numberField.js"></script>
+    <span id="copylAddress" style="display: inline-block; position: absolute; left: -9999em;"></span>
+</body>
+
+</html>

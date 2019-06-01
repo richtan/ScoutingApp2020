@@ -1,6 +1,8 @@
+
 import scouting.scoutingHandler as scoutingHandler
 import index.indexHandler as index
 import pit.pitHandler as pitHandler
+import util.DatabaseUtil as database
 import util.DataScraper as scraper
 
 import os
@@ -29,7 +31,7 @@ app.allowed_file = allowed_file
 
 #  config, evntually move to config
 app.database = database.DatabaseUtil
-app.scraper = scraper
+app.scraper = scraper.datascraper
 app.database.storeVariable(
     'batteryStatus', ['good', 'good', 'good', 'good', 'good', 'good', 'good', 'good', 'good', 'good', 'good'])
 app.database.storeVariable(
@@ -38,7 +40,6 @@ app.database.storeVariable('batteryChargingTime', 5)
 
 app.register_blueprint(pitHandler.bp, url_prefix=PIT_PREFIX)
 app.register_blueprint(scoutingHandler.bp, url_prefix=SCOUTING_PREFIX)
-app.register_blueprint(publicityBoard.bp)
 app.register_blueprint(index.bp)
 
 

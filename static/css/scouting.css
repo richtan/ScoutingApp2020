@@ -1,0 +1,200 @@
+:root {
+    --main-orange: #FF6400;
+    --light-orange: #FFC0A8;
+    --dark-orange: #D45800;
+    --deep-orange: #993f00;
+    --main-gray: #555555;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url("/fonts/montserrat/Montserrat-Regular.otf");
+}
+
+* {
+    margin:  0;
+    padding: 0;
+    border: none;
+    font-family: Montserrat, sans-serif;
+    outline: none;
+}
+
+html {
+    background-color: var(--main-gray);
+}
+
+body {
+    background-color: black;
+}
+
+@media (orientation: landscape) {
+    body {
+        width: 60vw;
+        margin: auto;
+    }
+}
+
+header {
+    background-color: black;
+    padding: 2vh 5vw 2vh 5vw;
+}
+
+h1 {
+    color: var(--main-orange);
+    font-size: 5vh;
+    margin-bottom: 0.5vh;
+}
+
+h2 {
+    color: white;
+    font-size: 2.5vh;
+}
+
+section {
+    border-bottom: 1px solid black;
+}
+
+section.headerSection {
+    background-color: var(--deep-orange);
+    padding: 1.5vh 5vw 1.5vh 5vw;
+    position: sticky;
+    top: 0;
+}
+
+section.headerSection h3 {
+    color: white;
+    font-size: 3vh;
+}
+
+section.inputSection {
+    background-color: var(--light-orange);
+    padding-left: 5vw;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+
+section.inputSection h3 {
+    color: black;
+    font-size: 2.5vh;
+    flex: 0 0 50%;
+}
+
+div.numberInput {
+    flex: 0 0 50%;
+    display: flex;
+    flex-flow: row;
+}
+
+div.numberInput button {
+    color: white;
+    background-color: var(--main-orange);
+    font-size: 3vh;
+    flex: 0 0 6vh;
+    transition: 0.1s;
+}
+
+div.numberInput button:active {
+    background-color: var(--dark-orange);
+    transition: 0.1s;
+}
+
+div.numberFieldWrapper {
+    flex: 1 1 auto;
+}
+
+div.numberInput input {
+    width: 100%;
+    background-color: white;
+    color: black;
+    font-size: 3vh;
+    text-align: center;
+    padding: 1vh 0;
+}
+
+div.toggleInput {
+    flex: 0 0 50%;
+    display: flex;
+    flex-flow: row;
+}
+
+div.toggleInput input {
+    display: none;
+}
+
+div.toggleInput label {
+    color: white;
+    padding: 1vh 0;
+    background-color: var(--main-orange);
+    font-size: 3vh;
+    flex: 1 1 50%;
+    text-align: center;
+    transition: 0.25s
+}
+
+div.toggleInput label:active {
+    background-color: var(--dark-orange);
+    transition: 0.25s
+}
+
+div.toggleInput input:checked + label {
+    background-color: var(--dark-orange);
+}
+
+div.optionInput {
+    flex: 0 0 50%;
+    display: flex;
+    flex-flow: column;
+}
+
+div.optionInput input {
+    display: none;
+}
+
+div.optionInput label {
+    color: white;
+    padding: 1vh 0;
+    background-color: var(--main-orange);
+    font-size: 3vh;
+    text-align: center;
+    transition: 0.25s
+}
+
+div.optionInput label:active {
+    background-color: var(--dark-orange);
+    transition: 0.25s
+}
+
+div.optionInput input:checked + label {
+    background-color: var(--dark-orange);
+}
+
+div.textInput {
+    flex: 0 0 50%;
+    display: flex;
+}
+
+div.textInput textarea {
+    padding: 2vh 0vw;
+    font-size: 2vh;
+    text-align: center;
+    flex: 1 1 auto;
+}
+
+input[type="submit"] {
+    color: white;
+    width: 100%;
+    padding: 3vh 0;
+    background-color: var(--main-orange);
+    font-size: 3vh;
+    text-align: center;
+    transition: 0.25s;
+    position: sticky;
+    bottom: 0;
+    box-shadow: 0 -1vh 1vh rgba(0, 0, 0, 0.5);
+}
+
+input[type="submit"]:active {
+    background-color: var(--dark-orange);
+    transition: 0.25s;
+}
