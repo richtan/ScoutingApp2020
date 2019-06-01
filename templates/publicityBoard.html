@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--This is not nearly finished yet: Alexis-->
+
+<head>
+    <title>Team 972 Publicity Board</title>
+    <meta charset="utf-8">
+    </meta>
+    <link rel="shortcut icon" type="image/png" href="images/clawLogoOrange.png">
+    <link rel="stylesheet" type="text/css" href="css/publicityBoard.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700|Teko:500" rel="stylesheet">
+
+    <script>
+        function cad() {
+            document.getElementById('interactiveCAD').style = "";
+            document.getElementById('robo').style = "display:none";
+        }
+        function robo() {
+            document.getElementById('interactiveCAD').style = "display:none";
+            document.getElementById('robo').style = "";
+        }
+    </script>
+</head>
+
+<body style="text-align: center">
+
+    <header>
+
+        <img id="clawLogo" src="images/FinalStrokeLogo.png" />
+        <h1 style="font-family: 'Teko', sans-serif;">Iron Claw Robotics</h1>
+
+    </header>
+
+    <div class="divider"></div>
+
+    <iframe id="interactiveCAD" style="display:none"
+        src="https://viewer.autodesk.com/id/dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YTM2MHZpZXdlci90MTU1MjYwMjY3MjAwNl8wMzQ4MzkwMTcxMTU0NzYzNDVfMTU1MjYwMjY3MjE4OS5zbGRhc20?sheetId=YmE0YzhmNzktMDBhZC00NmE5LTg1NzYtZGQzNWM1OTliZGU1&designtype=sldasm"></iframe>
+    <div id="robo" class="robo">
+        <table style="margin-left: auto;margin-right: auto; width:80vw">
+            <tr>
+                <td>
+                    <ul>
+                        <h2>Drivetrain</h2>
+                        <li>Mechanum</li>
+                        <li>4 wheels</li>
+                        <li>4 CIMs</li>
+                    </ul>
+                    <br />
+                </td>
+                <td>
+                    <ul>
+                        <h2>Climb</h2>
+                        <li>Level 2</li>
+                        <li>Starts at Level 2</li>
+                        <li>3 Pistons</li>
+                    </ul>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <h2>Hatch</h2>
+                        <li>Outtake: To level 2</li>
+                        <li>Intake: Depot</li>
+                        <li>Piston Hook</li>
+
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <h2>Cargo</h2>
+                        <li>Outtake: To Level 2</li>
+                        <li>Intake: Ground/Depot</li>
+                        <li>Mecanum Roller</li>
+                    </ul>
+                </td>
+
+            </tr>
+
+
+        </table>
+        <br />
+        <ul>
+            <h2>Statistics</h2>
+            <li>Cycle Time: ~15 secs</li>
+            <li>Height: 43.5 inches</li>
+            <li>Length & Width: 29 7/8 in</li>
+        </ul>
+    </div>
+    <button id="cad" style="font-size:30px;" onclick="cad();">CAD</button><button id="robo" style="font-size:30px;"
+        onclick="robo();">Robot Info</button>
+    <div class="divider"></div>
+    <div id="sponsors">
+
+
+        <div id="oddMarqueeDiv">
+            <img class="sponsorImage" src="images/sponsorLogos/newMilleniumFoundation.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/aeronet.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/campusInsuranceService.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/google.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/facilitron.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/baeSystems.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/rotaryClubLosGatos.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/qualcomm.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/lockheedMartin.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/brRacing.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/atlas.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/intuitiveSurgical.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/texasInstruments.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/tempCFO.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/nowForeverStudios.png" />
+
+        </div>
+
+        <div id="evenMarqueeDiv">
+            <img class="sponsorImage" src="images/sponsorLogos/newMilleniumFoundation.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/aeronet.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/campusInsuranceService.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/google.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/facilitron.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/baeSystems.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/rotaryClubLosGatos.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/qualcomm.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/lockheedMartin.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/brRacing.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/atlas.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/intuitiveSurgical.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/texasInstruments.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/tempCFO.png" />
+            <img class="sponsorImage" src="images/sponsorLogos/nowForeverStudios.png" />
+        </div>
+
+
+    </div>
+    </div>
+
+
+</body>
+
+</html>

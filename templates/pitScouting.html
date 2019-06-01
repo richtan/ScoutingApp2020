@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Input Pit Data</title>
+	<link rel="stylesheet" type="text/css" href="/css/matchScouting.css?v=1.1">
+	<script src="/js/toggle.js"></script>
+	<script src="/js/jquery.js"></script>
+</head>
+
+<div id="background"></div>
+
+<body>
+	<a href="/scouting/home">
+		<img src="/images/back.png" style="float:left;position:relative;
+	   z-index:1000; width:100px"></a>
+	<img src="/images/back.png" style="opacity:0.0;float:right;position:relative;
+	   z-index:1000; width:100px">
+
+
+	<br><br>
+	<div></div>
+	<h1>Input Pit Data</h1>
+
+	<h2>Team Number:</h2>
+
+	<form id="inputForm" method="POST" enctype="multipart/form-data">
+		<input type="number" name="teamNumber" placeholder="254" style="width:20vw;" min="1" max="8000" step="1"
+			required>
+		<br />
+		<input type="text" name="scoutname" placeholder="Scouter's Name" style="width:20vw;" required>
+		<div id="driveTrain">
+			<h3>Drive Trains</h3>
+			<div class="outtakeLevels">
+				<input type="radio" name="driveTrain" value="Swerve" id="Swerve"><label
+					class="firstInput multiline vw20" for="Swerve">Swerve</label>
+				<input type="radio" name="driveTrain" value="WCD" id="WCD"><label class="vw20 multiline"
+					for="WCD">WCD</label>
+				<input type="radio" name="driveTrain" value="Mechanum" id="Mecanum"><label
+					class="vw20 lastInput multiline" for="Mechanum">Mecanum</label>
+				<br />
+				<input type="radio" name="driveTrain" value="H-Drive" id="H-Drive"><label for="H-Drive"
+					class="vw20 firstInput multiline">H-Drive</label>
+				<input type="radio" name="driveTrain" value="OmniDrive" id="Omnidrive"><label class="vw20 multiline"
+					for="Omnidrive">Omni Drive</label>
+				<input type="radio" name="driveTrain" value="other" id="other"><label class="vw20 lastInput multiline"
+					for="other">Other</label>
+			</div>
+		</div>
+
+		<div id="hatchInput">
+			<h3>Hatch</h3>
+			<h2>Outtake Locations </h2>
+			<div class="outtakeLevels">
+				<input type="checkbox" name="hatchLevel1" id="hatch1"><label for="hatch1" class="firstInput vw20">Level
+					1</label>
+				<input type="checkbox" name="hatchLevel2" id="hatch2"><label for="hatch2" class="vw20">Level 2</label>
+				<input type="checkbox" name="hatchLevel3" id="hatch3"><label class="vw20 lastInput" for="hatch3">Level
+					3</label>
+			</div>
+			<h2>Intake Locations </h2>
+			<div class="outtakeLevels">
+				<input type="checkbox" name="hatchLevelG" id="hatchf"><label class="vw30 firstInput"
+					for="hatchf">Ground</label>
+				<input type="checkbox" name="hatchLevelD" id="hatchl"><label class="vw30 lastInput"
+					for="hatchl">Depot</label>
+			</div>
+			<h2>Describe Hatch Mechanisms</h2>
+			<input type="text" name="hatchComments" class="vw60" placeholder="Type here...">
+		</div>
+		<br />
+		<div id="cargoInput">
+			<h3>Cargo </h3>
+			<h2>Outtake Locations </h2>
+			<div class="outtakeLevels">
+				<input type="checkbox" name="cargoLevel1" id="cargo1"><label for="cargo1" class="firstInput vw20">Level
+					1</label>
+				<input type="checkbox" name="cargoLevel2" id="cargo2"><label for="cargo2" class="vw20">Level 2</label>
+				<input type="checkbox" name="cargoLevel3" id="cargo3"><label class="lastInput vw20" for="cargo3">Level
+					3</label>
+			</div>
+			<h2>Intake Locations </h2>
+			<div class="outtakeLevels">
+				<input type="checkbox" name="cargoLevelG" id="cargof"><label class="vw30 firstInput"
+					for="cargof">Ground</label>
+				<input type="checkbox" name="cargoLevelD" id="cargol"><label class="vw30 lastInput"
+					for="cargol">Depot</label>
+			</div>
+			<h2>Describe Cargo Mechanisms</h2>
+			<input type="text" name="cargoComments" class="vw60" placeholder="Type here...">
+		</div>
+
+		<div id="climbInput">
+			<h3>Climb</h3>
+			<div class="outtakeLevels">
+				<input type="radio" name="climbLevel" value="No Climb" id="climb0" checked><label
+					class="vw15 firstInput" for="climb0">No Climb</label>
+				<input type="radio" name="climbLevel" value="Level 1" id="climb1"><label class="vw15" for="climb1">Level
+					1</label>
+				<input type="radio" name="climbLevel" value="Level 2" id="climb2"><label class="vw15" for="climb2">Level
+					2</label>
+				<input type="radio" name="climbLevel" value="Level 3" id="climb3"><label class="vw15 lastInput"
+					for="climb3">Level 3</label>
+			</div>
+
+
+
+			<input type="checkbox" name="buddyClimb" id="buddyClimb"><label class="firstInput lastInput"
+				for="buddyClimb" style="margin-right: 1vw;">Buddy Climb?</label>
+			<span></span>
+			<input type="radio" name="buddyClimbNum" value="buddyClimb1" id="buddyClimb1" checked><label
+				class="firstInput" for="buddyClimb1" style="width: 2vw;">1</label>
+			<input type="radio" name="buddyClimbNum" value="buddyClimb2" id="buddyClimb2"><label class="lastInput"
+				for="buddyClimb2" style="width:2vw;">2</label>
+
+		</div>
+
+		<h3>Miscellaneous</h3>
+
+		<div class="inlineblock">
+			<h2>Cycle Time (s)</h2>
+			<input type="number" name="cycleTime" placeholder="20" min="3" max="60" step="1" class="floatInput"
+				required>
+		</div>
+
+		<div class="inlineblock">
+			<h2>Programming Language</h2>
+			<input type="text" name="ProgramLang" placeholder="Java" class="floatInput" list="langList" required>
+			<datalist id="langList">
+				<option>C++</option>
+				<option>Java</option>
+				<option>Labview</option>
+				<option>Python</option>
+			</datalist>
+		</div>
+
+		<div class="inlineblock">
+			<h2>Weight (lbs)</h2>
+			<input type="number" name="weight" placeholder="120" min="10" max="150" step="1" class="floatInput"
+				required>
+		</div>
+
+		<h2 style="margin: 5vh 0 1vh 0;">Image Upload</h2>
+		<label for="robotPicUpload">Choose A File...</label>
+		<input id="robotPicUpload" type="file" name="robotPicUpload" class="vw30" accept="image/*" onchange="readURL(this);">
+		<img id="robotPic" />
+
+		<textarea rows="5" form="inputForm" name="comments" maxlength="255"
+			placeholder="Enter additional comments here..."></textarea>
+
+		<input type="submit" value="Submit">
+	</form>
+
+	<script>
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var img = new Image();
+				var canvas = document.createElement("canvas");
+				var ctx = canvas.getContext("2d");
+
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					$('#robotPic')
+						.attr('src', e.target.result)
+						.width('30vw');
+				};
+
+				img.src = URL.createObjectURL(event.target.files[0]);
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+	</script>
+</body>
+
+
+</html>

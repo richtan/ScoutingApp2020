@@ -1,0 +1,155 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Match Data</title>
+    <link rel="stylesheet" type="text/css" href="/css/matchScouting.css">
+
+</head>
+
+<div id="background"></div>
+
+<body style="text-align: center">
+    <h1>Match Data</h1>
+    <a href="/scouting/home">
+        <img src="/images/back.png" style="float:left;position:relative;
+                	   z-index:1000; width:80px"></a>
+    <img src="/images/back.png" style="opacity:0.0;float:right;position:relative;
+                	   z-index:1000; width:80px">
+    <table style="width:95vw;text-align: center; margin-left: auto;margin-right: auto;" id="myTable2">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0, true)">Team Number</th>
+                <th onclick="sortTable(1, true)">Match Number</th>
+                <th onclick="sortTable(2, true)">Hatch L3</th>
+                <th onclick="sortTable(3, false)">Hatch L2</th>
+                <th onclick="sortTable(4, false)">Hatch L1</th>
+                <th onclick="sortTable(5, false)">Hatch LC</th>
+                <th onclick="sortTable(6, false)">Cargo L3</th>
+                <th onclick="sortTable(7, false)">Cargo L2</th>
+                <th onclick="sortTable(8, false)">Cargo L1</th>
+                <th onclick="sortTable(9, false)">Cargo LC</th>
+                <th onclick="sortTable(10, true)">Climb</th>
+                <th onclick="sortTable(12, true)">Climb Time</th>
+                <th onclick="sortTable(13, false)">Buddy Climb</th>
+                <th onclick="sortTable(14, false)">Fouls</th>
+                <th onclick="sortTable(15, false)">Defense</th>
+                <th onclick="sortTable(16, false)">Sandstorm</th>
+                <th onclick="sortTable(17, false)">Scout Name</th>
+                <th onclick="sortTable(18, false)">Comments</th>
+            </tr>
+        </thead>
+        {% for item in data %}
+        <tr>
+            <td>{{item[1]}}</td>
+            <td>{{item[2]}}</td>
+            <td>{{item[3]}}</td>
+            <td>{{item[4]}}</td>
+            <td>{{item[5]}}</td>
+            <td>{{item[6]}}</td>
+            <td>{{item[7]}}</td>
+            <td>{{item[8]}}</td>
+            <td>{{item[9]}}</td>
+            <td>{{item[10]}}</td>
+            <td>{{item[11]}}</td>
+            <td>{{item[12]}}</td>
+            <td>{{item[13]}}</td>
+            <td>{{item[14]}}</td>
+            <td>{{item[15]}}</td>
+            <td>{{item[16]}}</td>
+            <td>{{item[17]}}</td>
+            <td>{{item[18]}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        thead {
+            background-color: #cecece;
+        }
+
+        thead,
+        td {
+            padding: 5px 0
+        }
+    </style>
+
+    <script>
+        function sortTable(n, isNumber) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("myTable2");
+            switching = true;
+            // Set the sorting direction to ascending:
+            dir = "asc";
+            /* Make a loop that will continue until
+            no switching has been done: */
+            while (switching) {
+                // Start by saying: no switching is done:
+                switching = false;
+                rows = table.rows;
+                /* Loop through all table rows (except the
+                first, which contains table headers): */
+                for (i = 1; i < (rows.length - 1); i++) {
+                    // Start by saying there should be no switching:
+                    shouldSwitch = false;
+                    /* Get the two elements you want to compare,
+                    one from current row and one from the next: */
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+                    /* Check if the two rows should switch place,
+                    based on the direction, asc or desc: */
+                    if (dir == "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            // If so, mark as a switch and break the loop:
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (!isNumber) {
+                            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                                // If so, mark as a switch and break the loop:
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                        else {
+                            if (Number(x.innerHTML) > Number(y.innerHTML)) {
+                                shouldSwitch = true;
+                                console.log(Number(x.innerHTML));
+                                console.log(Number(y.innerHTML));
+                                break;
+                            }
+                        }
+
+                    }
+                }
+                if (shouldSwitch) {
+                    /* If a switch has been marked, make the switch
+                    and mark that a switch has been done: */
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    // Each time a switch is done, increase this count by 1:
+                    switchcount++;
+                } else {
+                    /* If no switching has been done AND the direction is "asc",
+                    set the direction to "desc" and run the while loop again. */
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

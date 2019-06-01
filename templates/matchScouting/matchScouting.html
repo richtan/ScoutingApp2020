@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Input Match Data</title>
+    <link rel="stylesheet" type="text/css" href="/css/matchScouting.css">
+    <script src="/js/toggle.js"></script>
+    <script src="/js/jquery.js"></script>
+</head>
+
+<div id="background"></div>
+
+<body>
+    <a href="/scouting/home">
+        <img src="/images/back.png" style="float:left;position:relative;
+        	   z-index:1000; width:80px"></a>
+    <img src="/images/back.png" style="opacity:0.0;float:right;position:relative;
+        	   z-index:1000; width:80px">
+    <h1>You are scouting on Match #<b>{{matchNumber}}</b> for Team <b>{{teamNumber}}</b> <em>{{teamName}}</em></h1>
+
+    <button id="toggle" onclick="toggle()"></button>
+    <form id="inputForm" method="POST">
+        <input type="text" name="scoutname" placeholder="Scouter's Name" style="width:40vw;" required>  
+
+        <div id="sandstormInput">
+            <h3>Sandstorm</h3>
+            <div class="outtakeLevels">
+                <input type="radio" name="sandstorm" value="idk" id="SSidk" checked><label class="vw15 firstInput"
+                    for="SSidk">Don't Know</label>
+                <input type="radio" name="sandstorm" value="none" id="SSnone"><label class="vw15"
+                    for="SSnone">None</label>
+                <input type="radio" name="sandstorm" value="camera" id="SScamera"><label class="vw15"
+                    for="SScamera">Camera</label>
+                <input type="radio" name="sandstorm" value="autonomous" id="SSautonomous"><label class="vw15 lastInput"
+                    for="SSautonomous">Autonomous</label>
+            </div>
+        </div>
+
+        <div id="hatchInput">
+            <h3>Hatch</h3>
+            <div class="outtakeLevels">
+                <input type="button" value="Cargo Ship" id="hatch0" class="firstInput" checked>
+
+                <input type="button" value="Rocket 1" id="hatch1">
+
+                <input type="button" value="Rocket 2" id="hatch2">
+
+                <input type="button" value="Rocket 3" id="hatch3" class="lastInput">
+            </div>
+
+            <div>
+                <label class="counter" id="h0">0</label>
+                <label class="counter" id="h1">0</label>
+                <label class="counter" id="h2">0</label>
+                <label class="counter" id="h3">0</label>
+            </div>
+        </div>
+
+        <br />
+        <div id="cargoInput">
+            <h3>Cargo</h3>
+            <div class="outtakeLevels">
+                <input type="button" value="Cargo Ship" id="cargo0" class="firstInput" checked>
+
+                <input type="button" value="Rocket 1" id="cargo1">
+
+                <input type="button" value="Rocket 2" id="cargo2">
+
+                <input type="button" value="Rocket 3" id="cargo3" class="lastInput">
+            </div>
+            <div>
+                <label class="counter" id="c0">0</label>
+                <label class="counter" id="c1">0</label>
+                <label class="counter" id="c2">0</label>
+                <label class="counter" id="c3">0</label>
+            </div>
+        </div>
+        <div id="defenseInput">
+            <h3>Defense</h3>
+            <div class="defenseRating">
+                <input type="checkbox" name="defense" id="defense"><label class="firstInput lastInput" for="defense"
+                    style="margin-right: 1vw;">Did Defense?</label>
+                <span></span>
+                <input type="radio" name="defenseNum" value="1" id="d1" checked><label class="firstInput" for="d1"
+                    style="width: 17vw;">Effective</label>
+                <input type="radio" name="defenseNum" value="2" id="d2" checked><label class="" for="d2"
+                    style="width: 17vw;">Mid Effective</label>
+                <input type="radio" name="defenseNum" value="3" id="d3"><label class="lastInput" for="d3"
+                    style="width:17vw;">Not Effective</label>
+                <input type="number" name="fouls" id="fouls" placeholder="# of Fouls">
+
+            </div>
+        </div>
+        <div id="climbInput">
+            <h3>Climb</h3>
+            <div class="outtakeLevels">
+                <input type="radio" name="climbLevel" value="No Climb" id="climb0" checked><label
+                    class="vw15 firstInput" for="climb0">No Climb</label>
+                <input type="radio" name="climbLevel" value="Level 1" id="climb1"><label class="vw15" for="climb1">Level
+                    1</label>
+                <input type="radio" name="climbLevel" value="Level 2" id="climb2"><label class="vw15" for="climb2">Level
+                    2</label>
+                <input type="radio" name="climbLevel" value="Level 3" id="climb3"><label class="lastInput vw15"
+                    for="climb3">Level 3</label>
+            </div>
+            <input type="checkbox" name="buddyClimb" id="buddyClimb"><label class="firstInput lastInput"
+                for="buddyClimb" style="margin-right: 1vw;">Buddy Climb?</label>
+            <span></span>
+            <input type="radio" name="buddyClimbNum" value="buddyClimb1" id="buddyClimb1" checked><label
+                class="firstInput" for="buddyClimb1" style="width: 2vw;">1</label>
+            <input type="radio" name="buddyClimbNum" value="buddyClimb2" id="buddyClimb2"><label class="lastInput"
+                for="buddyClimb2" style="width:2vw;">2</label>
+            <input type="number" name="climbTime" placeholder="Enter time (sec.)" style="width:20vw;" pattern="^[0-9]*$"
+                min="0" max="60">
+        </div>
+
+        <textarea rows="5" form="inputForm" name="comments" maxlength="255"
+            placeholder="Enter additional comments here..."></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+<script src="/js/matchScoutingForm.js"></script>
+
+</html>

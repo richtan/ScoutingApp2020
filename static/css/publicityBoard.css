@@ -1,0 +1,148 @@
+@font-face {
+    font-family: Monserrat;
+    src: url(../fonts/monserrat/Montserrat-Regular.otf);
+}
+
+@font-face {
+    font-family: Monserrat;
+    src: url(../fonts/monserrat/Montserrat-Bold.otf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Bladerunner;
+    src: url(../fonts/bladerunner/bladerunner.ttf);
+}
+
+@font-face {
+    font-family: Bebas;
+    src: url(../fonts/bebas/BEBAS.ttf);
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Monserrat";
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    padding: 0;
+    display: flex;
+    flex-flow: column;
+}
+
+div.divider {
+    height: 0;
+    width: 60vw;
+    border-top: 2px solid black;
+    margin: auto;
+}
+
+header {
+    flex: 0 0 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img#clawLogo {
+    height: 6vh;
+    
+}
+
+h1 {
+    text-transform: uppercase;
+    color: #FF6400;
+    font-family: "Bebas";
+    font-weight: bold;
+    font-size: 8vw;
+    margin-left: 2vw;
+    margin-top: 1vh;
+    display: inline;
+    word-spacing: 1vw;
+    letter-spacing: 0.3vw;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
+
+div#teamDescription {
+    flex: 0 0 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    width: 95vw;
+    text-align: center;
+    font-size: 3.2vw;
+}
+
+iframe {
+    border: none;
+    margin: 2vh 0 2vh 0;
+    flex: 1 1 auto;
+    margin-bottom: -90px;
+    position: relative;
+    bottom: 100px;
+    clip-path: inset(95px 0 0 0)
+}
+
+div#sponsors {
+    flex: 0 0 12%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+@keyframes oddMarquee {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+@keyframes evenMarquee {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-200%);
+    }
+}
+
+div#oddMarqueeDiv {
+    display: block;
+    animation: oddMarquee 48s linear infinite;
+}
+
+div#evenMarqueeDiv {
+    display: block;
+    animation: evenMarquee 48s linear infinite;
+    animation-delay: 24s;
+}
+
+img.sponsorImage {
+    height: 8vh;
+    margin-left: 2vw;
+    filter: brightness(0);
+}
+
+
+
+
+li{
+    list-style: none
+}
+
+.robo{
+    font-size: 40px;width: 100vw; height:50vh; margin-left:auto;margin-right:auto;
+}

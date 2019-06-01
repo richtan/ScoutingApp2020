@@ -1,0 +1,14 @@
+# Set the build language to Python
+language: python
+
+# Set the python version to 3.6
+python: 3.6
+
+# Install the codecov pip dependency
+install:
+  - pip install flask
+  - pip install requests
+
+# Run the unit test
+script:
+  - python -m app.tests.tester

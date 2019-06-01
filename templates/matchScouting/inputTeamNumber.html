@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Input Match Data</title>
+    <link rel="stylesheet" type="text/css" href="/css/matchScouting.css">
+</head>
+
+<div id="background"></div>
+
+<body>
+    <a href="/scouting/home">
+        <img src="/images/back.png" style="float:left;position:relative;
+    	   z-index:1000; width:80px"></a>
+    <img src="/images/back.png" style="opacity:0.0;float:right;position:relative;
+    	   z-index:1000; width:80px">
+    <h1>Input Team Number</h1>
+    <h2>You are scouting on Match #{{matchNumber}}</em></h2>
+
+    <form method="POST">
+
+        <input style="display: none;" name="matchNumber" value="{{matchNumber}}">
+
+        <select name="teamNumber" id="teamNumberSelect">
+            <option selected disabled>Select a Team</option>
+            <option value="{{R1}}">Team {{R1}}</option>
+            <option value="{{R2}}">Team {{R2}}</option>
+            <option value="{{R3}}">Team {{R3}}</option>
+            <option value="{{B1}}">Team {{B1}}</option>
+            <option value="{{B2}}">Team {{B2}}</option>
+            <option value="{{B3}}">Team {{B3}}</option>
+        </select>
+
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        var options = document.getElementsByTagName('option');
+        for (var e = options.length - 1; e >= 0; e--) {
+            if (options[e].value === '') {
+                options[e].parentNode.removeChild(options[e])
+            }
+        }
+    </script>
+</body>
+
+</html>

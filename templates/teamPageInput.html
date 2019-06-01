@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Page Input</title>
+    <link rel="stylesheet" type="text/css" href="/css/matchScouting.css">
+
+</head>
+<div id="background"></div>
+
+<body style="text-align:center">
+    <a href="/scouting/home">
+        <img src="/images/back.png" style="float:left;position:relative;
+                	   z-index:1000; width:80px"></a>
+    <img src="/images/back.png" style="opacity:0.0;float:right;position:relative;
+                	   z-index:1000; width:80px">
+    <h1>Enter Team Number</h1>
+    <div>
+
+        <input type="text" id="meform" autocomplete="off" style="height:50px" name="meorm"
+            placeholder="Enter Team Number..." pattern="^[0-9]*$">
+
+    </div>
+</body>
+<script>
+    document.getElementById('meform').onkeydown = function (event) {
+        if (event.keyCode == 13) {
+            window.location = "teamPage/" + document.getElementById('meform').value;
+        }
+    }
+</script>
+
+</html>

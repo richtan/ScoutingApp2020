@@ -1,0 +1,377 @@
+@font-face {
+    font-family: Monserrat;
+    src: url(../fonts/monserrat/Montserrat-Regular.otf);
+}
+
+@font-face {
+    font-family: Monserrat;
+    src: url(../fonts/monserrat/Montserrat-Bold.otf);
+    font-weight: bold;
+}
+@import url('https://fonts.googleapis.com/css?family=Barlow+Condensed:300');
+@import url('https://fonts.googleapis.com/css?family=Exo+2:700');
+* {
+    text-align: center;
+    font-family: 'Monserrat', sans-serif;
+}
+
+*:focus {
+    outline:none;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding-bottom: 5vh;
+}
+
+@keyframes backgroundScroll {
+    from{
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 447px 891px;
+    }
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+.vw20{
+    width:21vw;
+}
+.vw12{
+    width:12vw;
+}
+.vw10{
+    width:10vw;
+}
+.vw15{
+    width:15vw;
+}
+.vw30{
+    width:32vw;
+}
+.vw60{
+    width:62vw;
+}
+#background {
+    z-index:-999;
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/images/color1.gif");
+    background-attachment: fixed;
+    animation-name: backgroundScroll;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    filter: opacity(25%);
+}
+
+div#hatchInput, div#cargoInput {
+    display: inline-block;
+    float: center;
+    margin: 0 2vw;
+}
+
+
+h1 {
+    display: inline-block;
+    margin-bottom: 5vh;
+    width: 80vw;
+    border-bottom: 2px solid black;
+    font-size: 50px;
+}
+
+h3 {
+    margin-bottom: 1vh;
+    font-size: 50px;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    display: none;
+}
+
+input[type="radio"] + label, input[type="checkbox"] + label {
+    display: inline-block;
+    border: 2px solid black;
+    color: black;
+    margin-left: -6px;
+    transition: 0.25s;
+    padding: 1vh 1vw;
+    margin-bottom: 1vh;
+    background-color: white;
+    font-size: 2vw;
+}
+
+input[type="radio"] + label:hover, input[type="checkbox"] + label:hover {
+    background-color: rgba(255, 193, 7, 0.78);;
+    transition: 0.25s;
+}
+
+input[type="radio"] + label:active, input[type="checkbox"] + label:active {
+    background-color: orange;
+    transition: 0.25s;
+}
+
+input[type="radio"]:checked + label, input[type="checkbox"]:checked + label {
+    border-color: orange;
+    background-color: rgba(255, 193, 7, 0.78);;
+    transition: 0.25s;
+}
+
+input[type="radio"]:checked + label + input + label, input[type="checkbox"]:checked + label + input + label {
+    border-left-color: orange;
+    transition: 0.25s;
+}
+
+input[type="button"] {
+    width: 15vw;
+    display: inline-block;
+    border: 2px solid black;
+    color: black;
+    margin-left: -6px;
+    transition: 0.25s;
+    padding: 1vh 1vw;
+    margin-bottom: 1vh;
+    background-color: white;
+    font-size: 2vw;
+}
+
+.counter {
+    vertical-align: middle;
+    margin: 0 6vw;
+    width: 5vw;
+    height: 3.5vw;
+    border-radius: 1vw;
+    border: 1px solid black;
+    background-color: orange;
+    display: inline-block;
+    color: black;
+    margin-bottom: 1vh;
+    font-size: 3vw;
+    background-size: 100% 100%;
+}
+
+.counter:hover {
+    background-color: white;
+    background-image: url('../images/minus.png');
+    transition: 0.25s;
+}
+
+input[type="button"]:hover {
+    background-color: rgba(255, 193, 7, 0.78);;
+    transition: 0.25s;
+}
+
+input[type="button"]:active {
+    background-color: orange;
+    transition: 0.25s;
+}
+
+.multiline {
+    margin-bottom: 0;
+}
+
+.firstInput {
+    padding-left: calc(1vw + 0.5vh);
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+.lastInput {
+    padding-right: calc(1vw + 0.5vh);
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
+
+button#toggle {
+    position: fixed;
+    bottom: 5px;
+    height: 1.5vw;
+    width: 1.5vw;
+    right: 90vw;
+    background-color: transparent;
+    background-repeat: none;
+    background-size: 100%;
+    background-image: url(../images/toggle/toggle.png);
+    border: none;
+    filter: opacity(0%);
+}
+
+button#toggle:hover {
+    filter: opacity(5%);
+}
+
+select {
+    display: block;
+    margin: auto;
+    font-size: 20px;
+    padding: 2vh 1vh;
+    border-radius: 2vh;
+    background: none;
+    background-color: orange;
+    border: none;
+}
+
+textarea {
+    display: block;
+    position: relative;
+    margin: auto;
+    margin-top: 3vh;
+    width: 61vw;
+    padding: 2vh;
+    border-radius: 2vh;
+    resize: vertical;
+    border: 2px solid black;
+    overflow: hidden;
+    font-size: 1.5vw;
+}
+
+textarea:focus {
+    border: 2px solid orange;
+}
+
+input{
+    font-size: 2vw;
+}
+input[type="number"] {
+    margin: auto;
+    display: block;
+    padding: 2vh;
+    border-radius: 2vh;
+    border: 2px solid black;
+    transition: 0.25s; 
+    font-size: 2vw;
+}
+input[type="text"]:not(.floatInput) {
+    margin: auto;
+    display: block;
+    height:20px; 
+    padding: 1.3vh;
+    border-radius: 2vh;
+    border: 2px solid black;
+    transition: 0.25s; 
+    font-size: 20px;
+}
+
+input[type="text"]:focus {
+    border-color: orange;
+    transition: 0.25s;
+    
+}
+
+label[for="robotPicUpload"] {
+    display: inline-block;
+    border: 2px solid black;
+    color: black;
+    margin-left: -6px;
+    transition: 0.25s;
+    padding: 1vh 1vw;
+    margin-bottom: 1vh;
+    background-color: white;
+    font-size: 2vw;
+    border-radius: 1vw; 
+}
+
+label[for="robotPicUpload"]:hover {
+    background-color: rgba(255, 193, 7, 0.78);;
+    transition: 0.25s;
+}
+
+label[for="robotPicUpload"]:active {
+    background-color: orange;
+    transition: 0.25s;
+}
+
+input[type="file"] {
+    display: none; 
+}
+
+input[type='submit'] {
+    margin: auto;
+    margin-top: 3vh;
+    display: inline-block;
+    border: 2px solid orange;
+    background-color: orange;
+    color: white;
+    transition: 0.25s;
+    padding: 1vh calc(1vw + 0.5vh);
+    border-radius: 100px;
+    font-size: 2vw;
+}
+
+input[type='submit']:hover {
+    border-color: rgb(255, 200, 97);
+    background-color: rgb(255, 200, 97);
+}
+
+input[type='submit']:active {
+    background-color: orange;
+    transition: 0;
+}
+.wide{
+    width:400px;
+}
+
+.vw10{
+    width:10vw;
+}
+.inlineblock {
+    display: inline-block;
+    float: center;
+    width: 25vw;
+    margin: 0 1vw;
+}
+.floatInput {
+    width: 70%;
+    height: initial;
+    padding: 2vh;
+    border-radius: 2vh;
+    border: 2px solid black;
+    transition: 0.25s; 
+    font-size: 2vw;
+}
+
+button.scoutingHomeButtons:hover {
+    cursor: hand;
+}
+
+img#robotPic {
+    display: block;
+    margin: auto;
+}
+
+input#buddyClimb:not(:checked) ~ input[name="buddyClimbNum"] + label {
+    display: none;
+}
+
+input#defense:not(:checked) ~ input[name="defenseNum"] + label {
+    display: none;
+}

@@ -1,0 +1,25 @@
+body {
+    background-color: white;    
+}
+
+a.btn.btn-default.btn-lg {
+    text-decoration: none;
+}
+
+a.btn.btn-link.btn-lg {
+    text-decoration: none;
+}
+
+button.scoutingHomeButtons {
+    background-color: #ff9900;
+    color: black;
+    border-color: black;
+    border-radius: 10x 10px;
+    padding: 10px;
+    transition: 0.5s;
+    margin: 10px;
+}
+
+button:hover {
+    cursor: hand;
+}

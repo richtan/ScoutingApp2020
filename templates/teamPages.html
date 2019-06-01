@@ -1,0 +1,121 @@
+<html class="gr__127_0_0_1">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScoutingAppBootstrap</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/teamPage.css">
+
+</head>
+<a href="/scouting/home">
+    <img src="/images/back.png" style="float:left;position:relative;
+                	   z-index:1000; width:80px"></a>
+
+<body data-gr-c-s-loaded="true" style="text-align: center;">
+
+
+    <div class="tablewidth" style="display: inline-block;">
+        <header>
+            <div class="page-header"
+                style="padding-left:0;margin-left:25px;margin-top:40px;margin-bottom:40px;margin-right:25;">
+                <div class="page-header">
+                    <h1>Team {{num}} <a href="{{website}}" target="_blank"><small>{{name}} </small></a></h1>
+                </div>
+            </div>
+        </header>
+
+        <table class="table">
+            <thead>
+                General &amp; Pit Scouting Info
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Hatches </td>
+                    <td>
+                        <p>Intake Location: {{HIL}}</p>
+                        <p>Possible Hatch Heights: {{PHH}}</p>
+                        <p>Average Hatch Scored: {{AHS}}</p>
+                        <p>Total Hatches Scored: {{THS}}</p>
+                        <p>Description: {{HC}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cargo </td>
+                    <td>
+                        <p>Intake Location: {{CIL}}</p>
+                        <p>Possible Cargo Heights:{{PCH}}</p>
+                        <p>Average Cargo Scored: {{ACS}}</p>
+                        <p>Total Cargo Scored: {{TCS}}</p>
+                        <p>Description: {{CC}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Climb </td>
+                    <td>
+                        <p>Possible Climb Heights: {{PCH}}</p>
+                        <p>Buddy Climb: {{BC}}</p>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Robot </td>
+                    <td>
+                        <p>Weight: {{W}}</p>
+                        <p>Drivetrain: {{DT}}</p>
+                        <p>Cycle Time: {{CT}}</p>
+                        <p>Programming Language: {{PL}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Misc. </td>
+                    <td>
+                        <p>Comments: {{COM}}</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br />
+    <img src="{{PIC}}" class="imgpos" style="width: 50vw; ">
+
+    <table class="table" style="width: 94%; margin: 5vh auto; text-align: center;">
+        <thead>
+            <tr>
+                <th>Match ID</th>
+                <th>Hatches (Top, Mid, Low, Car)</th>
+                <th>Cargo (Top, Mid, Low, Car)</th>
+                <th>Defense</th>
+                <th>Fouls</th>
+                <th>Climb</th>
+                <th>Climb Time</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for match in matches %}
+            <tr>
+                <td>{{match[2]}}</td>
+                <td>{{match[3]}}, {{match[4]}}, {{match[5]}}, {{match[6]}}</td>
+                <td>{{match[7]}}, {{match[8]}}, {{match[9]}}, {{match[10]}}</td>
+                <td>{{match[15]}}</td>
+                <td>{{match[14]}}</td>
+                <td>{{match[11]}}</td>
+                <td>{{match[12]}}</td>
+                <td>{{match[-1]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="/js/jquery-1.12.4.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script id="bs-live-reload" data-sseport="60224" data-lastchange="1549751551576" src="/js/livereload.js"></script>
+
+
+    <span id="copylAddress" style="display: inline-block; position: absolute; left: -9999em;"></span>
+</body><span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span
+        class="gr__triangle"></span></span>
+
+</html>
