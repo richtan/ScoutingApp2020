@@ -19,7 +19,7 @@ def makeNumber(custom):
 def makeTextInput(custom):
     return """<section class="inputSection"><h3>%s</h3><div class="textInput">   <textarea type="text" name="%s" placeholder="%s" rows="6"                   maxlength="255"></textarea>           </div>       </section>""" %(custom["Title"], custom["Name"], custom["Placeholder"])
 def makeHTML():
-    data=[{"Type": "ShortTextInput", "Title":"Scouter's Name","Placeholder": "Type here", "DefaultName": r"{{name}}", "Name": "1"}, 
+    data=[{"Type": "ShortTextInput", "Title":"Scouter's Name","Placeholder": "Type here", "DefaultName": "", "Name": "1"}, 
         {"Type":"Header", "Title": "Sandstorm"}, 
         {"Type":"Options", "Title": "Sandstorm Strat", "Options":["Fail", "Not Fail", "kinda fail"], "Name": "3"}, 
         {"Type":"Number", "Title":"Num", "Min": '0', "Max": '10', "Name": "4"}, 

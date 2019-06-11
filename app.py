@@ -37,6 +37,7 @@ app.database.storeVariable(
 app.database.storeVariable(
     'timeUntilGood', [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 app.database.storeVariable('batteryChargingTime', 5)
+app.database.storeVariable("takenRobots", {})
 
 app.register_blueprint(pitHandler.bp, url_prefix=PIT_PREFIX)
 app.register_blueprint(scoutingHandler.bp, url_prefix=SCOUTING_PREFIX)

@@ -18,6 +18,8 @@ def matchScouting(request):
         print(data)
         if ('teamNumber' in fields):
             session['teamnumber'] = data['teamNumber']
+            taken = database.getVariable("takenRobots")
+            taken[session["matchid"]].append(data["teamNumber"])
             if False:  # implement later
                 return flask.render_template('/matchScouting/inputMatchNumber.html')
             #return flask.render_template('/AlanMatchScouting.html', matchNumber=request.form['matchNumber'], teamNumber=request.form['teamNumber'])
@@ -28,7 +30,11 @@ def matchScouting(request):
                 return redirect("/scouting/inputMatchData")
 
             # already people scouting teams, need to implement
-            datateams = ["254", "1323"]
+            taken = database.getVariable("takenRobots")
+            if not (data["matchNumber"] in taken):
+                taken[data["matchNumber"]]=[]
+
+            datateams = taken[data["matchNumber"]]
             teamlist = ['R1', 'R2', 'R3', 'B1', 'B2', 'B3']
 
             teams = scraper.getMatchTeams(data["matchNumber"])
