@@ -19,9 +19,11 @@ def matchScouting(request):
         if ('teamNumber' in fields):
             session['teamnumber'] = data['teamNumber']
             taken = database.getVariable("takenRobots")
-            taken[session["matchid"]].append(data["teamNumber"])
-            if False:  # implement later
+            
+
+            if data['teamNumber'] in taken[session["matchid"]]:  # implement later
                 return flask.render_template('/matchScouting/inputMatchNumber.html')
+            taken[session["matchid"]].append(data["teamNumber"])
             #return flask.render_template('/AlanMatchScouting.html', matchNumber=request.form['matchNumber'], teamNumber=request.form['teamNumber'])
             return makeHTML().replace("{{matchNumber}}", request.form['matchNumber']).replace("{{teamNumber}}", request.form['teamNumber'])
         if('matchNumber' in fields):
@@ -52,11 +54,11 @@ def matchScouting(request):
 
         # example data: {'climbTime': '10', 'cargo': '1,2,1,0,', 'matchNum': '12345', 'comments': 'Comments here', 'climbLevel': 'Level 1', 'teamNum': '12345', 'hatch': '1,1,1,2,', 'sandstorm': 'idk'}
         try:
-            data.update({"MatchID": session['matchid'], "TeamNumber": session['teamnumber']})
+            data.update({"MatchID": session['matchid'], "TeamNumber": session['teamnumber'], "key":'1iXYDM1RxiohklB5mpEAWVOntMR9DzWMICej5GAz28FI', "type":"match"})
         except Exception as e:
             return e
 
         print(data)
-        rq.post("https://script.google.com/macros/s/AKfycbzJb8ch1pg5vSCx8dAoTHEQwwn5SjfcGsWa7GpP4mb4-C20tq0G/exec?key=1XfIrmB9tNzBckh3W689WZToBLRnU2kwWatePk_pawoc", params=data, data=data)
+        rq.post("https://script.google.com/macros/s/AKfycbxuJhaW4NcmsRJ80wDPoSevQON7347FTIyyL09qB-T5njpLgaZm/exec?key=1iXYDM1RxiohklB5mpEAWVOntMR9DzWMICej5GAz28FI", params=data, data=data)
 
         return render_template("fullScreenBill.html", url="https://belikebill.ga/billgen-API.php?default=1")
