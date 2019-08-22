@@ -48,7 +48,7 @@ def matchScouting(request):
                                          R1=teams['R1'],
                                          R2=teams['R2'],
                                          R3=teams['R3'],
-                                         B1=teams['B1'],
+                                         B1=teams['B1'], 
                                          B2=teams['B2'],
                                          B3=teams['B3'],)
 
