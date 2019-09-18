@@ -31,7 +31,6 @@ def matchScouting(request):
             if not data['matchNumber'] or not data['matchNumber'].isdigit():
                 return redirect("/scouting/inputMatchData")
 
-            # already people scouting teams, need to implement
             taken = database.getVariable("takenRobots")
             if not (data["matchNumber"] in taken):
                 taken[data["matchNumber"]]=[]

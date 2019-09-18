@@ -27,23 +27,21 @@ def makeHTML():
         {"Type":"Number", "Title":"Rocket L1", "Min": '0', "Max": '10', "Name": "SL1"}, 
         {"Type":"Number", "Title":"Rocket L2", "Min": '0', "Max": '10', "Name": "SL2"},
         {"Type":"Number", "Title":"Rocket L3", "Min": '0', "Max": '10', "Name": "SL3"},
+        {"Type":"Number", "Title":"Drop", "Min": '0', "Max": '10', "Name": "SL4"},
         {"Type":"Header", "Title": "Teleoperated Period"}, 
         {"Type":"Number", "Title":"Cargo Ship", "Min": '0', "Max": '10', "Name": "TCS"}, 
         {"Type":"Number", "Title":"Rocket L1", "Min": '0', "Max": '10', "Name": "TL1"}, 
         {"Type":"Number", "Title":"Rocket L2", "Min": '0', "Max": '10', "Name": "TL2"},
         {"Type":"Number", "Title":"Rocket L3", "Min": '0', "Max": '10', "Name": "TL3"},
+        {"Type":"Number", "Title":"Drop", "Min": '0', "Max": '10', "Name": "TL4"},
         {"Type":"Header", "Title": "Endgame"},
         {"Type":"Number", "Title":"Climb Level", "Min": '0', "Max": '3', "Name": "ClimbLevel"},
-        {"Type":"Number", "Title":" Climb Time", "Min": '0', "Max": '100', "Name": "ClimbTime"},
+         {"Type":"Options", "Title": "Buddy Climb", "Options":["Lifted Others", "Got Lifted"], "Name": "BuddyClimb"}, 
         {"Type":"Header", "Title":"Misc"},
         {"Type":"Options", "Title": "Played Defense", "Options":["Yes", "No"], "Name": "PlayedDefense"}, 
         {"Type":"Number", "Title":"Defense Ability (0 if N.A.)", "Min": '0', "Max": '5', "Name": "DefenseAbility"},
 
         {"Type":"Options", "Title": "Defended On", "Options":["Yes", "No"], "Name": "DefendedOn"}, 
-        {"Type":"Number", "Title":"Defense Countering Ability (0 if N.A.)", "Min": '0', "Max": '5', "Name": "DefenseCounteringAbility"},
-
-        {"Type":"Number", "Title": "Driver Ability", "Min":"1", "Max": "5" ,"Name": "DriverAbility"}, 
-        {"Type":"Options", "Title": "Omnidirectional Movement", "Options":["Yes", "No"], "Name": "OmnidirectionalMovement"}, 
         {"Type":"Options", "Title": "Major Technical Issue / Lost Comms", "Options":["Yes", "No"], "Name": "TechnicalIssues"}, 
 
         {"Type":"TextInput", "Title": "Comments", "Placeholder": "Type here", "Name": "Comments"}]
