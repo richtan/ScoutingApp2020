@@ -1,6 +1,7 @@
 from flask import Flask, request, Blueprint, render_template, current_app
 from .pitScouting import pitScouting
 from .matchScouting import matchScouting
+from .changeForm import changeForm
 import random
 import time
 bp = Blueprint('scouting', __name__)
@@ -39,3 +40,7 @@ def pitDataDisplay():
 @bp.route('/matchData', methods=['GET'])
 def matchDataDisplay():
     return "will return gsheet"
+
+@bp.route('/changeFormInputs', methods=['GET', 'POST'])
+def changeFormInputs():
+    return changeForm(request)

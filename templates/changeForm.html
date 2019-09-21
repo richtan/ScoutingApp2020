@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Change Form Data</title>
+    <link rel="stylesheet" type="text/css" href="/css/matchScouting.css">
+<script>
+    function prettyPrint() {
+    var ugly = document.getElementById('textarea').value;
+    var obj = JSON.parse(ugly);
+    var pretty = JSON.stringify(obj, undefined, 4);
+    document.getElementById('textarea').value = pretty;
+}
+</script>
+</head>
+
+<div id="background"></div>
+
+<body onload="prettyPrint()">
+    <a href="/scouting/home">
+        <img src="/images/back.png" style="float:left;position:relative;
+    	   z-index:1000; width:80px"></a>
+    <img src="/images/back.png" style="opacity:0.0;float:right;position:relative;
+    	   z-index:1000; width:80px">
+    <h1>Change Form Data</h1>
+    <h2>Change the form using the json below. DO NOT change unless you have permission to.</em></h2>
+
+    <form method="POST">
+
+        <textarea style="" id="textarea" name="json" >{{json}}
+</textarea>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+            var tx = document.getElementsByTagName('textarea');
+    for (var i = 0; i < tx.length; i++) {
+      tx[i].setAttribute('style', 'height:' + (tx[i].scrollHeight) + 'px; text-align: left;overflow:auto');
+      tx[i].addEventListener("input", OnInput, false);
+    }
+    
+    function OnInput() {
+      this.style.height = 'auto';
+      this.style.height = (this.scrollHeight) + 'px';
+    }
+        </script>
+</body>
+
+</html>
