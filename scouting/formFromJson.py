@@ -50,7 +50,7 @@ def makeHTML():
 
         {"Type":"Header", "Title": "Endgame"},
         {"Type":"Number", "Title":"Climb Level", "Min": '0', "Max": '3', "Name": "ClimbLevel"},
-         {"Type":"Options", "Title": "Buddy Climb", "Options":["Lifted Others", "Got Lifted"], "Name": "BuddyClimb"}, 
+         {"Type":"Options", "Title": "Buddy Climb", "Options":["Lifted Others", "Got Lifted", "No Buddy"], "Name": "BuddyClimb"}, 
         {"Type":"Header", "Title":"Misc"},
         {"Type":"Options", "Title": "Played Defense", "Options":["Yes", "No"], "Name": "PlayedDefense"}, 
         {"Type":"Number", "Title":"Defense Ability (0 if N.A.)", "Min": '0', "Max": '5', "Name": "DefenseAbility"},
@@ -59,11 +59,12 @@ def makeHTML():
         {"Type":"Options", "Title": "Major Technical Issue / Lost Comms", "Options":["Yes", "No"], "Name": "TechnicalIssues"}, 
 
         {"Type":"TextInput", "Title": "Comments", "Placeholder": "Type here", "Name": "Comments"}]
-    HTML = r"""<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">   <title>Match Scouting</title>    <link href="/css/scouting.css" type="text/css" rel="stylesheet"></head><body style="">    <header>        <h1>Match Scouting</h1>        <h2>You are scouting Team {{teamNumber}} on Match {{matchNumber}}.</h2>    </header>    <form method="POST" onsubmit="return confirm(&#39;Are you sure you want to submit the data?&#39;);">"""
+    HTML = r"""<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">   <title>Match Scouting</title>    <link href="/css/scouting.css" type="text/css" rel="stylesheet"></head><body style="">    <header>        <h1>Match Scouting</h1>        <h2>You are scouting Team {{teamNumber}} on Match {{matchNumber}}.</h2>    </header>    <form method="POST" onsubmit="return confirm(&#39;Are you sure you want to submit the data?&#39;);">"""
     EndHTML = """<input type="submit" value="Submit!">    </form>    <script type="text/javascript" src="/js/numberField.js"></script></body></html>"""
     textToFunction = {"ShortTextInput": makeShortTextInput, "Header": makeHeader, "Options": makeOptions, "Number": makeNumber, "TextInput": makeTextInput}
     for element in data:
         HTML+=textToFunction[element["Type"]](element)
     HTML+=EndHTML
     return HTML
+
 

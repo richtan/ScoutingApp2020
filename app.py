@@ -45,11 +45,13 @@ app.register_blueprint(index.bp)
 
 
 @app.route('/')
+def home1():
+    return render_template('home.html')
 @app.route('/home')
 def home():
     return render_template('home.html')
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port="80")
 # 1920x1080
