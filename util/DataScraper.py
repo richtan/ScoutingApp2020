@@ -15,6 +15,7 @@ class DataScraper:
     def __init__(self):
         self.SVReventKey = '2019casf'
         self.SFeventKey = '2019casf'
+        self.ChezyEvent = ""
         self.Year = "2019"
 
     def getEvent(self, year, name):
