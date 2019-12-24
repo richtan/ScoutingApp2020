@@ -6,7 +6,7 @@ class SqlUtil:
                        ("CARGO", "INT"), ("HATCH", "INT"), ("CLIMB", "REAL"), ("COMMENTS", "CHAR(50)")]
 
     def __init__(self):
-        self.conn = sqlite3.connect('data.db')
+        self.conn = sqlite3.connect('data.db', check_same_thread=False)
         table_columns = [(e[1], e[2]) for e in self.conn.execute(
             "PRAGMA table_info(data)").fetchall()]
         not_added_yet_columns = [e for e in self.current_columns if e not in table_columns]
