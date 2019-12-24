@@ -12,12 +12,13 @@ def slackmatch():
     teams = ['R1','R2','R3','B1','B2','B3']
     blocks = []
     for team in teams:
+        stats = match.get(team)
         blocks.append({"type": "divider"})
         blocks.append({
 			"type": "section",
 			"text": {
 				"type": "mrkdwn",
-				"text": team + ' ' + str(match.get(team))
+				"text": team + ' \n' + '\n'.join([e+": "+str(stats[e]) for e in sorted(list(match.get(team)))])
 			},
             "accessory": {
 				"type": "button",
