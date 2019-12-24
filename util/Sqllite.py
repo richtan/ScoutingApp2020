@@ -48,7 +48,7 @@ class SqlUtil:
         self.conn.close()
 
 
-#sql = SqlUtil()
+sql = SqlUtil()
 #print(sql.give_headers())
 #print(sql.get_match_info(1))
 #sql.close()

@@ -2,9 +2,10 @@
 import scouting.scoutingHandler as scoutingHandler
 import index.indexHandler as index
 import pit.pitHandler as pitHandler
+import slack.slackHandler as slackHandler
 import util.DatabaseUtil as database
 import util.DataScraper as scraper
-
+import util.Sqllite as sqllite
 import os
 from flask import Flask, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
@@ -15,7 +16,7 @@ app.debug = True
 
 PIT_PREFIX = '/pit'
 SCOUTING_PREFIX = '/scouting'
-
+SLACK_PREFIX = '/slack'
 UPLOAD_FOLDER = './static/images/uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -32,6 +33,7 @@ app.allowed_file = allowed_file
 #  config, evntually move to config
 app.database = database.DatabaseUtil
 app.scraper = scraper.datascraper
+app.sqllite = sqllite.sql
 app.database.storeVariable(
     'batteryStatus', ['good', 'good', 'good', 'good', 'good', 'good', 'good', 'good', 'good', 'good', 'good'])
 app.database.storeVariable(
@@ -41,6 +43,7 @@ app.database.storeVariable("takenRobots", {})
 
 app.register_blueprint(pitHandler.bp, url_prefix=PIT_PREFIX)
 app.register_blueprint(scoutingHandler.bp, url_prefix=SCOUTING_PREFIX)
+app.register_blueprint(slackHandler.bp, url_prefix=SLACK_PREFIX)
 app.register_blueprint(index.bp)
 
 
