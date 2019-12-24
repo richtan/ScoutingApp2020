@@ -6,4 +6,4 @@ bp = Blueprint('index', __name__, template_folder='templates')
 
 @bp.route('/', methods=['GET'])
 def handle():
-    return flask.render_template('index.html')
+    return flask.redirect("/home")
