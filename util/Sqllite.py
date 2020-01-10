@@ -20,22 +20,41 @@ class SqlUtil:
 
     def get_current_columns(self):
         return [e[0] for e in self.current_columns]
-    def get_team_info(self, team_number):
+    def get_team_info(self, team_number, easy_info=False):
         team_matches = self.conn.execute("SELECT %s FROM data WHERE TEAMNUM=%s" % (','.join(self.get_current_columns()), team_number)).fetchall()
         
         average_stats = [0 if (e[1]=="INT" or e[1]=="REAL") and e[0]!="ID" else None for e in self.current_columns]
         team_number_index = next((c for c,e in enumerate(self.current_columns) if e[0]=="TEAMNUM"))
         
-        average_stats[team_number_index] = team_number
+        
 
-        if team_matches==[]: return average_stats
+        if team_matches==[]: 
+            average_stats[team_number_index] = team_number
+            return average_stats
 
         for match in team_matches:
             for count, stat in enumerate(match):
                 if average_stats[count] != None and count!=team_number_index:
-                    average_stats[count] += stat
+                    if stat:
+                        average_stats[count] += stat
+                    else:
+                        print(stat)
+        print(average_stats)
         average_stats = [stat/len(team_matches) if stat!=None else None for stat in average_stats]
-        return average_stats
+        average_stats[team_number_index] = team_number
+        average_stats_dict = dict(zip([e[0] for e in self.current_columns], average_stats))
+        filtered_average_stats = {k: v for k, v in average_stats_dict.items() if v is not None}
+        if easy_info:
+            return filtered_average_stats
+        else:
+            return average_stats
+    
+    def get_more_team_info(self, team_number):
+        base_stats = self.get_team_info(team_number, easy_info=True)
+        print(base_stats)
+        team_comments = self.conn.execute("SELECT %s FROM data WHERE TEAMNUM=%s" % ('COMMENTS', team_number)).fetchall()
+        base_stats.extend({"team_comments": team_comments})
+
 
     def get_match_info(self, matchNumber):
         #available_teams = [self.conn.execute("SELECT %s FROM data WHERE MATCH=%s" % (','.join(self.get_current_columns()), matchNumber)).fetchall()]
