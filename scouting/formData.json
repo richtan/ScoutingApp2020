@@ -7,17 +7,12 @@
     "Name": "Name"
   },
   { "Type": "Header", "Title": "Auto" },
+
   {
     "Type": "Options",
-    "Title": "Preload",
-    "Options": ["1 Ball", "2 Ball", "3 Ball"],
-    "Name": "Preload"
-  },
-  {
-    "Type": "Options",
-    "Title": "Hab Line",
+    "Title": "Initiation Line",
     "Options": ["Crossed", "Not Crossed"],
-    "Name": "HabLine"
+    "Name": "InitLine"
   },
   {
     "Type": "Number",
@@ -54,13 +49,6 @@
     "Min": "0",
     "Max": "10",
     "Name": "InnerAuto"
-  },
-  {
-    "Type": "Number",
-    "Title": "Inner Dropped",
-    "Min": "0",
-    "Max": "10",
-    "Name": "InnerAutoDropped"
   },
   { "Type": "Header", "Title": "Teleoperated Period" },
   {
@@ -100,30 +88,42 @@
     "Name": "InnerTele"
   },
   {
-    "Type": "Number",
-    "Title": "Inner Dropped",
-    "Min": "0",
-    "Max": "10",
-    "Name": "InnerTeleDropped"
-  },
-  {
     "Type": "Options",
     "Title": "Rotation Control",
-    "Options":["1 Try", "2 Tries","More Tries", "No"],
+    "Options":["1 Try","More Tries", "No"],
     "Name": "DidRotation"
   },
   {
     "Type": "Options",
     "Title": "Postion Control",
-    "Options":["1 Try", "2 Tries","More Tries", "No"],
+    "Options":["1 Try","More Tries", "No"],
     "Name": "DidPosition"
-  }
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   { "Type": "Header", "Title": "Endgame" },
   {
     "Type": "Options",
     "Title": "Climb Level",
-    "Options": ["None", "Park", "Center Climb", "Low Climb", "Middle Climb", "High Climb"],
+    "Options": ["None", "Park", "Center Climb", "Low Climb", "Middle Climb", "High Climb", "Fell Down"],
     "Name": "ClimbLevel"
   },
   {
@@ -140,16 +140,15 @@
     "Name": "PlayedDefense"
   },
   {
-    "Type": "Number",
-    "Title": "Defense Ability (0 if N.A.)",
-    "Min": "0",
-    "Max": "5",
+    "Type": "Options",
+    "Title": "Defense Ability",
+    "Options":["No defense", "1","2","3"],
     "Name": "DefenseAbility"
   },
   {
     "Type": "Options",
-    "Title": "Defended On",
-    "Options": ["Yes", "No"],
+    "Title": "Defense Handling",
+    "Options": ["No defense faced", "1", "2", "3"],
     "Name": "DefendedOn"
   },
   {
