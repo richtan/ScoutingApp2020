@@ -1,4 +1,5 @@
 from flask import Flask, request, Blueprint, render_template, current_app, jsonify
+import flask
 import random
 import time
 import re
@@ -49,7 +50,8 @@ def slackmatch():
 def slackteam():
     sqllite = current_app._get_current_object().sqllite
     team_num = request.form.get('text', None)
-    team_info = sqllite.get_team_info(team_num)
+    team_info = sqllite.get_more_team_info(team_num)
+    print(team_info)
     attachments = []
 
     

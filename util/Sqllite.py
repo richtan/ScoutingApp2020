@@ -53,7 +53,8 @@ class SqlUtil:
         base_stats = self.get_team_info(team_number, easy_info=True)
         print(base_stats)
         team_comments = self.conn.execute("SELECT %s FROM data WHERE TEAMNUM=%s" % ('COMMENTS', team_number)).fetchall()
-        base_stats.extend({"team_comments": team_comments})
+        base_stats.update({"team_comments": team_comments})
+        return base_stats
 
 
     def get_match_info(self, matchNumber):
