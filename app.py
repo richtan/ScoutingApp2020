@@ -29,7 +29,7 @@ def allowed_file(filename):
 app.allowed_file = allowed_file
 
 
-#  config, evntually move to config
+#  config, evntually move to config 
 app.database = database.DatabaseUtil
 app.scraper = scraper.datascraper
 app.sqllite = sqllite.sql
