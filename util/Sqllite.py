@@ -1,9 +1,9 @@
 import sqlite3
-from .DataScraper import datascraper
+#from .DataScraper import datascraper
 
 class SqlUtil:
-    current_columns = [("ID", "INT"), ("TEAMNUM", "TEXT"), ("MATCH", "INT"),
-                       ("CARGO", "INT"), ("HATCH", "INT"), ("CLIMB", "REAL"), ("COMMENTS", "CHAR(50)")]
+    current_columns = [("ID", "INT"), ("TEAMNUM", "INT"), ("MATCH", "INT"),
+                       ("Name", "TEXT"), ("InitLine", "INT"), ("LowAuto", "INT"), ("HighAuto", "INT"), ("LowTele", "INT"), ("HighTele","INT"), ("ShotPos", "INT"),("RotControl", "INT"), ("PosControl", "INT"), ("Climb", "TEXT"), ("ClimbLevel", "TEXT"), ("BuddyCLimb", "TEXT"), ("DefenseAbility", "INT") ("TechIssues", "INT"), ("Comments", "TEXT")]
 
     def __init__(self):
         self.conn = sqlite3.connect('data.db', check_same_thread=False)
