@@ -8,6 +8,7 @@ from .formFromJson import makeHTML
 def matchScouting(request):
     database = current_app._get_current_object().database
     scraper = current_app._get_current_object().scraper
+    sqllite = current_app._get_current_object().sqllite
     if request.method == "GET":
         return flask.render_template('/matchScouting/inputMatchNumber.html')
     elif request.method == "POST":
@@ -59,5 +60,5 @@ def matchScouting(request):
 
         print(data)
         rq.post("https://script.google.com/macros/s/AKfycbxuJhaW4NcmsRJ80wDPoSevQON7347FTIyyL09qB-T5njpLgaZm/exec?key=1iXYDM1RxiohklB5mpEAWVOntMR9DzWMICej5GAz28FI", params=data, data=data)
-
+        sqllite.add_match_data(data)
         return render_template("fullScreenBill.html", url="https://belikebill.ga/billgen-API.php?default=1")

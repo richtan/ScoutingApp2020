@@ -1,9 +1,15 @@
 import sqlite3
 #from .DataScraper import datascraper
+import time
 
 class SqlUtil:
     current_columns = [("ID", "INT"), ("TEAMNUM", "INT"), ("MATCH", "INT"),
-                       ("Name", "TEXT"), ("InitLine", "INT"), ("LowAuto", "INT"), ("HighAuto", "INT"), ("LowTele", "INT"), ("HighTele","INT"), ("ShotPos", "INT"),("RotControl", "INT"), ("PosControl", "INT"), ("Climb", "TEXT"), ("ClimbLevel", "TEXT"), ("BuddyCLimb", "TEXT"), ("DefenseAbility", "INT") ("TechIssues", "INT"), ("Comments", "TEXT")]
+                       ("Name", "TEXT"), ("InitLine", "INT"), ("LowAuto", "INT"),
+                        ("HighAuto", "INT"), ("LowTele", "INT"), ("HighTele","INT"),
+                         ("ShotPos", "TEXT"),("RotControl", "INT"), ("PosControl", "INT"),
+                        ("ShootsClose", "INT"), ("ShootsMid", "INT"), ("ShootsTrench", "INT"),
+                         ("Climb", "TEXT"), ("ClimbLevel", "TEXT"), ("BuddyClimb", "TEXT"), 
+                         ("DefenseAbility", "INT"), ("TechIssues", "INT"), ("Comments", "TEXT")]
 
     def __init__(self):
         self.conn = sqlite3.connect('data.db', check_same_thread=False)
@@ -64,6 +70,12 @@ class SqlUtil:
 
     def give_headers(self):
         return self.current_columns
+    def add_match_data(self, data):
+        print(data)
+        self.conn.execute("""INSERT INTO table (ID,TEAMNUM,MATCH,Name,InitLine,LowAuto,HighAuto,LowTele,HighTele,ShootsClose,ShootsMid,ShootsTrench,
+        RotControl,PosControl,Climb,ClimbLevel,BuddyClimb,DefenseAbility,TechIssues,Comments)
+VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s, %s, %s,%s, %s,%s);""" % (int(time.time()), data["TeamNumber"], data["MatchID"], data["Name"], data["InitLine"], data["LowAuto"], data["HighAuto"], data["LowTele"], data["HighTele"], data["ShootsClose"], data["ShootsMid"], data["ShootsTrench"], data["RotControl"], data["PosControl"], data["Climb"], data["ClimbLevel"], data["BuddyClimb"], data["DefenseAbility"], data["TechIssues"], data["Comments"]))
+        self.conn.commit()
     def close(self):
         self.conn.close()
 

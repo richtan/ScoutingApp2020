@@ -21,35 +21,14 @@
     "Max": "10",
     "Name": "LowAuto"
   },
-{
-    "Type": "Number",
-    "Title": "Low Dropped",
-    "Min": "0",
-    "Max": "10",
-    "Name": "LowAutoDropped"
-  },
   {
     "Type": "Number",
-    "Title": "Outer",
+    "Title": "High",
     "Min": "0",
     "Max": "10",
-    "Name": "OuterAuto"
+    "Name": "HighAuto"
   },
  
-  {
-    "Type": "Number",
-    "Title": "Outer Dropped",
-    "Min": "0",
-    "Max": "10",
-    "Name": "OuterAutoDropped"
-  },
-  {
-    "Type": "Number",
-    "Title": "Inner",
-    "Min": "0",
-    "Max": "10",
-    "Name": "InnerAuto"
-  },
   { "Type": "Header", "Title": "Teleoperated Period" },
   {
     "Type": "Number",
@@ -58,46 +37,24 @@
     "Max": "10",
     "Name": "LowTele"
   },
-{
-    "Type": "Number",
-    "Title": "Low Dropped",
-    "Min": "0",
-    "Max": "10",
-    "Name": "LowTeleDropped"
-  },
   {
     "Type": "Number",
-    "Title": "Outer",
+    "Title": "High",
     "Min": "0",
     "Max": "10",
-    "Name": "OuterTele"
-  },
- 
-  {
-    "Type": "Number",
-    "Title": "Outer Dropped",
-    "Min": "0",
-    "Max": "10",
-    "Name": "OuterTeleDropped"
-  },
-  {
-    "Type": "Number",
-    "Title": "Inner",
-    "Min": "0",
-    "Max": "10",
-    "Name": "InnerTele"
+    "Name": "HighTele"
   },
   {
     "Type": "Options",
     "Title": "Rotation Control",
     "Options":["1 Try","More Tries", "No"],
-    "Name": "DidRotation"
+    "Name": "RotControl"
   },
   {
     "Type": "Options",
     "Title": "Postion Control",
     "Options":["1 Try","More Tries", "No"],
-    "Name": "DidPosition"
+    "Name": "PosControl"
   },
 
 
@@ -117,7 +74,24 @@
 
 
 
-
+  {
+    "Type": "Options",
+    "Title": "Can Shoot Close",
+    "Options": ["Yes", "No"],
+    "Name" : "ShootsClose"
+  },
+  {
+    "Type": "Options",
+    "Title": "Can Shoot Mid",
+    "Options": ["Yes", "No"],
+    "Name" : "ShootsMid"
+  },
+  {
+    "Type": "Options",
+    "Title": "Can Shoot Trench",
+    "Options": ["Yes", "No"],
+    "Name" : "ShootsTrench"
+  },
 
   { "Type": "Header", "Title": "Endgame" },
   {
@@ -128,6 +102,13 @@
   },
   {
     "Type": "Options",
+    "Title": "Adjusts Position on bar",
+    "Options": ["Yes","No"],
+    "Name":"Climb"
+
+  },
+  {
+    "Type": "Options",
     "Title": "Buddy Climb",
     "Options": ["Lifted Others", "Got Lifted", "No Buddy"],
     "Name": "BuddyClimb"
@@ -135,27 +116,17 @@
   { "Type": "Header", "Title": "Misc" },
   {
     "Type": "Options",
-    "Title": "Played Defense",
-    "Options": ["Yes", "No"],
-    "Name": "PlayedDefense"
-  },
-  {
-    "Type": "Options",
     "Title": "Defense Ability",
     "Options":["No defense", "1","2","3"],
     "Name": "DefenseAbility"
   },
-  {
-    "Type": "Options",
-    "Title": "Defense Handling",
-    "Options": ["No defense faced", "1", "2", "3"],
-    "Name": "DefendedOn"
-  },
+
+
   {
     "Type": "Options",
     "Title": "Major Technical Issue / Lost Comms",
     "Options": ["Yes", "No"],
-    "Name": "TechnicalIssues"
+    "Name": "TechIssues"
   },
   {
     "Type": "TextInput",
