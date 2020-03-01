@@ -77,22 +77,6 @@ li a:hover {
 .vw60{
     width:62vw;
 }
-#background {
-    z-index:-999;
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("/images/color1.gif");
-    background-attachment: fixed;
-    animation-name: backgroundScroll;
-    animation-duration: 8s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    filter: opacity(25%);
-}
 
 div#hatchInput, div#cargoInput {
     display: inline-block;

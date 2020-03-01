@@ -59,6 +59,6 @@ def matchScouting(request):
             return e
 
         print(data)
-        rq.post("https://script.google.com/macros/s/AKfycbxuJhaW4NcmsRJ80wDPoSevQON7347FTIyyL09qB-T5njpLgaZm/exec?key=1iXYDM1RxiohklB5mpEAWVOntMR9DzWMICej5GAz28FI", params=data, data=data)
+        #rq.post("https://script.google.com/macros/s/AKfycbxuJhaW4NcmsRJ80wDPoSevQON7347FTIyyL09qB-T5njpLgaZm/exec?key=1iXYDM1RxiohklB5mpEAWVOntMR9DzWMICej5GAz28FI", params=data, data=data)
         sqllite.add_match_data(data)
         return render_template("fullScreenBill.html", url="https://belikebill.ga/billgen-API.php?default=1")
